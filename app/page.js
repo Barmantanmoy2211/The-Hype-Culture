@@ -372,8 +372,35 @@ export default function App() {
         </div>
       </section>
 
+      {/* Services Cards Section */}
+      <section className="py-16 px-4 bg-white">
+        <div className="container mx-auto">
+          <div className="grid md:grid-cols-4 gap-6">
+            {[
+              { title: 'Digital Marketing Services', color: 'from-red-500 to-red-600', icon: Megaphone },
+              { title: 'Website Design Services', color: 'from-cyan-500 to-cyan-600', icon: Globe },
+              { title: 'Mobile App Development', color: 'from-orange-500 to-orange-600', icon: Smartphone },
+              { title: 'Social Media Marketing', color: 'from-teal-500 to-teal-600', icon: Share2 }
+            ].map((service, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                whileHover={{ y: -5 }}
+                className={`bg-gradient-to-br ${service.color} rounded-lg p-8 text-white cursor-pointer shadow-lg hover:shadow-2xl transition-all min-h-[200px] flex flex-col justify-between`}
+              >
+                <service.icon className="w-12 h-12 mb-4 opacity-80" />
+                <h3 className="text-2xl font-bold leading-tight">{service.title}</h3>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* About Section */}
-      <section id="about" className="py-20 px-4 bg-gray-50">
+      <section id="about" className="py-20 px-4 bg-white">
         <div className="container mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -382,27 +409,28 @@ export default function App() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <Badge className="mb-4 bg-blue-100 text-blue-700 border-0">About Us</Badge>
-              <h2 className="text-4xl font-bold mb-6 text-gray-900">
-                We Don't Just Market Brands —{' '}
-                <span className="text-blue-600">We Build Them</span>
+              <Badge className="mb-4 bg-red-100 text-red-600 border-0">// ABOUT US</Badge>
+              <h2 className="text-4xl font-bold mb-6 text-gray-900 leading-tight">
+                We Don't Just Market Brands — We Build Them.
               </h2>
-              <p className="text-gray-600 mb-6 leading-relaxed">
-                TheHypeCulture is a full-service digital marketing and web design agency based in Siliguri, West Bengal. We're passionate about helping businesses thrive in the digital world through innovative strategies and cutting-edge technology.
+              <p className="text-gray-600 mb-4 leading-relaxed">
+                TheHypeCulture is a full-service digital marketing company based in Siliguri, established to help businesses grow through powerful branding and innovative online solutions.
               </p>
               <p className="text-gray-600 mb-6 leading-relaxed">
-                From startups to established enterprises, we craft tailored digital solutions that drive real results. Our team combines creativity, technical expertise, and data-driven strategies to transform your online presence.
+                Working in strategic partnership with leading technology and marketing providers, we deliver smarter, faster, and more effective digital results. We specialize in Local SEO, website & app development, social media marketing, and UI/UX design.
               </p>
-              <div className="grid grid-cols-2 gap-4 mb-6">
+              <div className="grid grid-cols-2 gap-4">
                 {[
-                  { icon: Check, text: 'Expert Team', color: 'text-green-600' },
-                  { icon: Check, text: '24/7 Support', color: 'text-green-600' },
-                  { icon: Check, text: 'Proven Results', color: 'text-green-600' },
-                  { icon: Check, text: 'Local Expertise', color: 'text-green-600' }
+                  { icon: Check, text: 'First Working Process' },
+                  { icon: Check, text: 'Dedicated Team' },
+                  { icon: Check, text: '24/7 Hours Support' },
+                  { icon: Check, text: 'Handle by Expert' }
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center space-x-2">
-                    <item.icon className={`w-5 h-5 ${item.color}`} />
-                    <span className="text-gray-700">{item.text}</span>
+                    <div className="w-6 h-6 rounded-full bg-cyan-500 flex items-center justify-center flex-shrink-0">
+                      <item.icon className="w-4 h-4 text-white" />
+                    </div>
+                    <span className="text-gray-700 text-sm">{item.text}</span>
                   </div>
                 ))}
               </div>
@@ -413,29 +441,206 @@ export default function App() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
+              className="relative"
             >
-              <Card className="border-0 shadow-xl">
-                <CardContent className="p-8">
-                  <div className="grid grid-cols-2 gap-6">
-                    {stats.map((stat, idx) => (
-                      <motion.div
-                        key={idx}
-                        initial={{ opacity: 0, scale: 0.5 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: idx * 0.1 }}
-                        className="text-center p-4 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-lg"
-                      >
-                        <div className="text-4xl font-bold text-blue-600 mb-2">
-                          {stat.number}
-                        </div>
-                        <div className="text-sm text-gray-600">{stat.label}</div>
-                      </motion.div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
+              <img 
+                src="https://images.pexels.com/photos/7651801/pexels-photo-7651801.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                alt="Marketing Strategy Presentation"
+                className="w-full h-[400px] object-cover rounded-lg shadow-xl"
+              />
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Local SEO Section - Dark Background */}
+      <section className="py-20 px-4 bg-gradient-to-br from-indigo-900 via-purple-900 to-indigo-900 text-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{
+            backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px)',
+            backgroundSize: '30px 30px'
+          }} />
+        </div>
+        <div className="container mx-auto relative z-10">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <img 
+                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NzR8MHwxfHNlYXJjaHwxfHxkaWdpdGFsJTIwbWFya2V0aW5nfGVufDB8fHx8MTc4MDQ5MjI4Nnww&ixlib=rb-4.1.0&q=85"
+                alt="Local SEO"
+                className="rounded-lg shadow-2xl"
+              />
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <Badge className="mb-4 bg-yellow-400 text-gray-900 border-0">// GROW LOCALLY, RANK GLOBALLY</Badge>
+              <h2 className="text-4xl font-bold mb-6 leading-tight">
+                Reach customers near you with smart Local SEO
+              </h2>
+              <p className="text-gray-200 mb-8 leading-relaxed">
+                We help businesses in Siliguri and beyond get found by nearby customers through Google My Business optimization, local citations, map listings, and review management.
+              </p>
+              <div className="flex flex-wrap gap-4 text-sm">
+                <Badge className="bg-white/10 text-white border-0 px-4 py-2">Best Lawyer Near Me</Badge>
+                <Badge className="bg-white/10 text-white border-0 px-4 py-2">Best Electrician Near Me</Badge>
+                <Badge className="bg-white/10 text-white border-0 px-4 py-2">Best Plumber Near Me</Badge>
+                <Badge className="bg-white/10 text-white border-0 px-4 py-2">Beauty Parlour Near Me</Badge>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Technology Stack */}
+      <section className="py-12 px-4 bg-gray-50">
+        <div className="container mx-auto">
+          <div className="flex overflow-x-auto space-x-8 pb-4">
+            {[
+              { name: 'Adobe Illustrator', icon: '🎨' },
+              { name: 'After Effects', icon: '🎬' },
+              { name: 'Photoshop', icon: '🖼️' },
+              { name: 'React', icon: '⚛️' },
+              { name: 'PHP', icon: '🐘' },
+              { name: 'WordPress', icon: '📝' },
+              { name: 'JavaScript', icon: '🟨' },
+              { name: 'CSS3', icon: '🎨' },
+              { name: 'HTML5', icon: '🌐' },
+              { name: 'iOS', icon: '🍎' },
+              { name: 'Android', icon: '🤖' },
+              { name: 'Premiere Pro', icon: '🎥' }
+            ].map((tech, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.05 }}
+                whileHover={{ scale: 1.1 }}
+                className="flex-shrink-0 w-20 h-20 bg-white rounded-lg shadow flex flex-col items-center justify-center cursor-pointer hover:shadow-lg transition-all"
+              >
+                <div className="text-3xl mb-1">{tech.icon}</div>
+                <div className="text-xs text-gray-600 text-center px-1">{tech.name.split(' ')[0]}</div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Boost Local Visibility Section */}
+      <section className="py-20 px-4 bg-white">
+        <div className="container mx-auto">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <div className="relative">
+                <img 
+                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800"
+                  alt="Team Collaboration"
+                  className="w-full h-[500px] object-cover rounded-lg shadow-xl"
+                />
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <Badge className="mb-4 bg-red-100 text-red-600 border-0">// BOOST YOUR LOCAL VISIBILITY</Badge>
+              <h2 className="text-4xl font-bold mb-6 text-gray-900">
+                Be Found When It Matters
+              </h2>
+              <p className="text-gray-600 mb-8">
+                Local searches lead to real business. Our expert strategies ensure your brand shows up at the right place and time.
+              </p>
+              
+              <div className="space-y-4">
+                {[
+                  { 
+                    icon: MapPin, 
+                    title: 'Google Map Ranking',
+                    desc: 'Appear in top positions for local searches and increase store visits.',
+                    color: 'from-cyan-500 to-cyan-600'
+                  },
+                  { 
+                    icon: Star, 
+                    title: 'Review Management',
+                    desc: 'Build trust with positive customer reviews and real-time responses.',
+                    color: 'from-cyan-500 to-cyan-600'
+                  },
+                  { 
+                    icon: TrendingUp, 
+                    title: 'Location-Based Targeting',
+                    desc: 'Reach the right audience in your area with optimized local keywords.',
+                    color: 'from-cyan-500 to-cyan-600'
+                  }
+                ].map((item, idx) => (
+                  <div key={idx} className="flex space-x-4">
+                    <div className={`w-16 h-16 rounded-lg bg-gradient-to-br ${item.color} flex items-center justify-center flex-shrink-0`}>
+                      <item.icon className="w-8 h-8 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-gray-900 mb-1">{item.title}</h3>
+                      <p className="text-sm text-gray-600">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats with Images */}
+      <section className="py-16 px-4 bg-gray-50">
+        <div className="container mx-auto">
+          <div className="grid md:grid-cols-2 gap-8">
+            {[
+              {
+                stat: '5+',
+                title: 'Years of Experience',
+                desc: 'Delivering consistent results through creative digital strategies and modern tech solutions.',
+                image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600',
+                color: 'from-cyan-600/90 to-blue-600/90'
+              },
+              {
+                stat: '1000+',
+                title: 'Projects Completed',
+                desc: 'From local startups to established businesses — helping brands grow and thrive online.',
+                image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600',
+                color: 'from-purple-600/90 to-indigo-600/90'
+              }
+            ].map((item, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.2 }}
+                className="relative h-[300px] rounded-lg overflow-hidden shadow-xl group"
+              >
+                <img 
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-full object-cover"
+                />
+                <div className={`absolute inset-0 bg-gradient-to-br ${item.color} flex flex-col justify-center p-8 text-white`}>
+                  <div className="text-6xl font-bold mb-4">{item.stat}</div>
+                  <h3 className="text-2xl font-bold mb-2">{item.title}</h3>
+                  <p className="text-gray-100 text-sm">{item.desc}</p>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -443,14 +648,16 @@ export default function App() {
       {/* Services Section */}
       <section id="services" className="py-20 px-4 bg-white">
         <div className="container mx-auto">
-          <div className="text-center mb-16">
-            <Badge className="mb-4 bg-blue-100 text-blue-700 border-0">Our Services</Badge>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
-              Comprehensive Digital Solutions
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              We offer a wide variety of digital marketing and development services
-            </p>
+          <div className="mb-12">
+            <Badge className="mb-4 bg-red-100 text-red-600 border-0">// OUR SERVICES</Badge>
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between">
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 md:mb-0">
+                We Offer a Wide Variety of<br />Digital Marketing Services
+              </h2>
+              <Button className="bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700 text-white">
+                OUR ALL SERVICES <ArrowRight className="ml-2 w-4 h-4" />
+              </Button>
+            </div>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -463,10 +670,10 @@ export default function App() {
                 transition={{ delay: idx * 0.1 }}
                 whileHover={{ y: -10 }}
               >
-                <Card className="h-full border-0 shadow-lg hover:shadow-2xl transition-all">
+                <Card className="h-full border-0 shadow-lg hover:shadow-2xl transition-all group">
                   <CardContent className="p-8">
-                    <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-blue-100 to-cyan-100 flex items-center justify-center mb-6">
-                      <service.icon className="w-8 h-8 text-blue-600" />
+                    <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-cyan-100 to-blue-100 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                      <service.icon className="w-8 h-8 text-cyan-600" />
                     </div>
                     <h3 className="text-2xl font-bold mb-4 text-gray-900">
                       {service.title}
@@ -477,7 +684,7 @@ export default function App() {
                     <div className="space-y-2">
                       {service.features.map((feature, fidx) => (
                         <div key={fidx} className="flex items-center space-x-2 text-sm text-gray-600">
-                          <ChevronRight className="w-4 h-4 text-blue-600" />
+                          <ChevronRight className="w-4 h-4 text-cyan-600" />
                           <span>{feature}</span>
                         </div>
                       ))}
@@ -486,6 +693,39 @@ export default function App() {
                 </Card>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section with Full Width Image */}
+      <section className="relative h-[500px] overflow-hidden">
+        <img 
+          src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600"
+          alt="Team Collaboration"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-cyan-600/90 to-blue-600/80" />
+        <div className="absolute inset-0 flex items-center">
+          <div className="container mx-auto px-4">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="max-w-2xl text-white"
+            >
+              <p className="text-sm mb-4 text-cyan-100">// We Carry More Than Just A Branding</p>
+              <h2 className="text-5xl font-bold mb-6 leading-tight">
+                Let's Build Your Digital Presence!
+              </h2>
+              <Button 
+                size="lg"
+                variant="outline"
+                className="border-2 border-white text-white hover:bg-white hover:text-cyan-600 bg-transparent"
+                onClick={handleCall}
+              >
+                CONTACT US
+              </Button>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -549,13 +789,10 @@ export default function App() {
       <section id="testimonials" className="py-20 px-4 bg-white">
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <Badge className="mb-4 bg-blue-100 text-blue-700 border-0">Testimonials</Badge>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
-              What Our Clients Say
+            <Badge className="mb-4 bg-red-100 text-red-600 border-0">// OUR CLIENTS</Badge>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              We are Trusted<br />By 1000+ Customers
             </h2>
-            <p className="text-xl text-gray-600">
-              Trusted by businesses across India
-            </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
