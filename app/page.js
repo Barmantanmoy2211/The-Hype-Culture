@@ -112,6 +112,21 @@ export default function App() {
     }
   ]
 
+  const technologies = [
+    { name: 'Adobe Illustrator', icon: '🎨' },
+    { name: 'After Effects', icon: '🎬' },
+    { name: 'Photoshop', icon: '🖼️' },
+    { name: 'React', icon: '⚛️' },
+    { name: 'PHP', icon: '🐘' },
+    { name: 'WordPress', icon: '📝' },
+    { name: 'JavaScript', icon: '🟨' },
+    { name: 'CSS3', icon: '🎨' },
+    { name: 'HTML5', icon: '🌐' },
+    { name: 'iOS', icon: '🍎' },
+    { name: 'Android', icon: '🤖' },
+    { name: 'Premiere Pro', icon: '🎥' }
+  ]
+
   const portfolioProjects = [
     { 
       title: 'E-commerce Platform', 
@@ -152,15 +167,19 @@ export default function App() {
   ]
 
   const handleCall = () => {
-    window.location.href = 'tel:+919876543210'
+    window.location.href = 'tel:+917602209766'
+  }
+
+  const handleCall2 = () => {
+    window.location.href = 'tel:+918116287949'
   }
 
   const handleWhatsApp = () => {
-    window.open('https://wa.me/919876543210', '_blank')
+    window.open('https://wa.me/917602209766', '_blank')
   }
 
   const handleEmail = () => {
-    window.location.href = 'mailto:hello@thehypeculture.com'
+    window.location.href = 'mailto:thehypeculture05@gmail.com'
   }
 
   const handleFormSubmit = async (e) => {
@@ -212,13 +231,13 @@ export default function App() {
             </div>
           </div>
           <div className="flex items-center space-x-6">
-            <a href="tel:+919876543210" className="hover:text-blue-200 flex items-center space-x-2">
+            <button onClick={handleCall} className="hover:text-blue-200 flex items-center space-x-2 transition-all">
               <Phone className="w-4 h-4" />
-              <span>+91 98765 43210</span>
-            </a>
-            <a href="mailto:hello@thehypeculture.com" className="hover:text-blue-200 flex items-center space-x-2">
+              <span>Call Us</span>
+            </button>
+            <a href="mailto:thehypeculture05@gmail.com" className="hover:text-blue-200 flex items-center space-x-2">
               <Mail className="w-4 h-4" />
-              <span>hello@thehypeculture.com</span>
+              <span>thehypeculture05@gmail.com</span>
             </a>
           </div>
         </div>
@@ -231,11 +250,13 @@ export default function App() {
             className="flex items-center space-x-3"
             whileHover={{ scale: 1.02 }}
           >
-            <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-600 to-cyan-600 flex items-center justify-center shadow-lg">
-              <Sparkles className="w-7 h-7 text-white" />
-            </div>
+            <img 
+              src="/logo.png" 
+              alt="TheHypeCulture Logo"
+              className="h-14 w-14 object-contain"
+            />
             <div>
-              <h1 className="text-2xl font-bold text-gray-900">TheHypeCulture</h1>
+              <h1 className="text-xl font-bold text-gray-900">TheHypeCulture</h1>
               <p className="text-xs text-blue-600">Digital Marketing Agency</p>
             </div>
           </motion.div>
@@ -498,35 +519,36 @@ export default function App() {
         </div>
       </section>
 
-      {/* Technology Stack */}
-      <section className="py-12 px-4 bg-gray-50">
-        <div className="container mx-auto">
-          <div className="flex overflow-x-auto space-x-8 pb-4">
-            {[
-              { name: 'Adobe Illustrator', icon: '🎨' },
-              { name: 'After Effects', icon: '🎬' },
-              { name: 'Photoshop', icon: '🖼️' },
-              { name: 'React', icon: '⚛️' },
-              { name: 'PHP', icon: '🐘' },
-              { name: 'WordPress', icon: '📝' },
-              { name: 'JavaScript', icon: '🟨' },
-              { name: 'CSS3', icon: '🎨' },
-              { name: 'HTML5', icon: '🌐' },
-              { name: 'iOS', icon: '🍎' },
-              { name: 'Android', icon: '🤖' },
-              { name: 'Premiere Pro', icon: '🎥' }
-            ].map((tech, idx) => (
+      {/* Technology Stack - Animated Continuous Scroll */}
+      <section className="py-16 px-4 bg-gradient-to-br from-purple-50 to-blue-50 overflow-hidden">
+        <div className="container mx-auto mb-8">
+          <div className="text-center">
+            <Badge className="mb-4 bg-purple-100 text-purple-700 border-0">Technologies We Use</Badge>
+            <h2 className="text-3xl font-bold text-gray-900">Our Tech Stack</h2>
+          </div>
+        </div>
+        
+        <div className="relative">
+          {/* Gradient overlays for fade effect */}
+          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-purple-50 to-transparent z-10" />
+          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-blue-50 to-transparent z-10" />
+          
+          {/* Continuous scrolling animation */}
+          <div className="flex animate-scroll-infinite hover:pause-animation">
+            {[...technologies, ...technologies, ...technologies].map((tech, idx) => (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.05 }}
-                whileHover={{ scale: 1.1 }}
-                className="flex-shrink-0 w-20 h-20 bg-white rounded-lg shadow flex flex-col items-center justify-center cursor-pointer hover:shadow-lg transition-all"
+                initial={{ opacity: 0.8 }}
+                whileHover={{ 
+                  opacity: 1, 
+                  scale: 1.15,
+                  y: -10,
+                  transition: { duration: 0.2 }
+                }}
+                className="flex-shrink-0 mx-4 w-28 h-28 bg-white rounded-2xl shadow-md flex flex-col items-center justify-center cursor-pointer hover:shadow-2xl transition-shadow group"
               >
-                <div className="text-3xl mb-1">{tech.icon}</div>
-                <div className="text-xs text-gray-600 text-center px-1">{tech.name.split(' ')[0]}</div>
+                <div className="text-4xl mb-2 group-hover:scale-110 transition-transform">{tech.icon}</div>
+                <div className="text-xs font-medium text-gray-700 text-center px-2">{tech.name}</div>
               </motion.div>
             ))}
           </div>
@@ -832,154 +854,119 @@ export default function App() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 px-4 bg-gray-50">
+      <section id="contact" className="py-20 px-4 bg-gradient-to-br from-blue-50 to-cyan-50">
         <div className="container mx-auto">
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="max-w-4xl mx-auto">
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
+              className="text-center mb-12"
             >
               <Badge className="mb-4 bg-blue-100 text-blue-700 border-0">Get In Touch</Badge>
               <h2 className="text-4xl font-bold mb-6 text-gray-900">
                 Let's Start Your
                 <span className="block text-blue-600">Digital Journey</span>
               </h2>
-              <p className="text-gray-600 mb-8">
+              <p className="text-gray-600 text-lg">
                 Have a project in mind? We'd love to hear from you. Contact us today for a free consultation.
               </p>
-
-              <div className="space-y-6">
-                <motion.div 
-                  whileHover={{ x: 10 }}
-                  className="flex items-center space-x-4 p-4 rounded-lg bg-white border border-gray-200 cursor-pointer shadow-sm hover:shadow-md transition-all"
-                  onClick={handleCall}
-                >
-                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-600 to-cyan-600 flex items-center justify-center">
-                    <Phone className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <div className="text-sm text-gray-600">Call Us</div>
-                    <div className="font-semibold text-gray-900">+91 98765 43210</div>
-                  </div>
-                </motion.div>
-
-                <motion.div 
-                  whileHover={{ x: 10 }}
-                  className="flex items-center space-x-4 p-4 rounded-lg bg-white border border-gray-200 cursor-pointer shadow-sm hover:shadow-md transition-all"
-                  onClick={handleWhatsApp}
-                >
-                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center">
-                    <MessageCircle className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <div className="text-sm text-gray-600">WhatsApp</div>
-                    <div className="font-semibold text-gray-900">+91 98765 43210</div>
-                  </div>
-                </motion.div>
-
-                <motion.div 
-                  whileHover={{ x: 10 }}
-                  className="flex items-center space-x-4 p-4 rounded-lg bg-white border border-gray-200 cursor-pointer shadow-sm hover:shadow-md transition-all"
-                  onClick={handleEmail}
-                >
-                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-600 to-cyan-600 flex items-center justify-center">
-                    <Mail className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <div className="text-sm text-gray-600">Email</div>
-                    <div className="font-semibold text-gray-900">hello@thehypeculture.com</div>
-                  </div>
-                </motion.div>
-
-                <div className="flex items-center space-x-4 p-4 rounded-lg bg-white border border-gray-200 shadow-sm">
-                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-600 to-cyan-600 flex items-center justify-center">
-                    <MapPin className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <div className="text-sm text-gray-600">Location</div>
-                    <div className="font-semibold text-gray-900">Siliguri, West Bengal, India</div>
-                  </div>
-                </div>
-              </div>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+            <div className="grid md:grid-cols-2 gap-6">
+              <motion.div 
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                whileHover={{ scale: 1.05, x: 10 }}
+                className="p-6 rounded-xl bg-white border-2 border-blue-200 cursor-pointer shadow-lg hover:shadow-2xl transition-all group"
+                onClick={handleCall}
+              >
+                <div className="flex items-center space-x-4">
+                  <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <Phone className="w-8 h-8 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="text-sm text-gray-600 mb-1">Primary Contact</div>
+                    <div className="font-bold text-gray-900 text-lg">Call Us Now</div>
+                    <div className="text-xs text-blue-600 mt-1">Click to call</div>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div 
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                whileHover={{ scale: 1.05, x: 10 }}
+                className="p-6 rounded-xl bg-white border-2 border-blue-200 cursor-pointer shadow-lg hover:shadow-2xl transition-all group"
+                onClick={handleCall2}
+              >
+                <div className="flex items-center space-x-4">
+                  <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <Phone className="w-8 h-8 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="text-sm text-gray-600 mb-1">Secondary Contact</div>
+                    <div className="font-bold text-gray-900 text-lg">Alternative Line</div>
+                    <div className="text-xs text-purple-600 mt-1">Click to call</div>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div 
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                whileHover={{ scale: 1.05, x: 10 }}
+                className="p-6 rounded-xl bg-white border-2 border-green-200 cursor-pointer shadow-lg hover:shadow-2xl transition-all group"
+                onClick={handleWhatsApp}
+              >
+                <div className="flex items-center space-x-4">
+                  <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <MessageCircle className="w-8 h-8 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="text-sm text-gray-600 mb-1">WhatsApp</div>
+                    <div className="font-bold text-gray-900 text-lg">Chat With Us</div>
+                    <div className="text-xs text-green-600 mt-1">Instant messaging</div>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div 
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                whileHover={{ scale: 1.05, x: 10 }}
+                className="p-6 rounded-xl bg-white border-2 border-blue-200 cursor-pointer shadow-lg hover:shadow-2xl transition-all group"
+                onClick={handleEmail}
+              >
+                <div className="flex items-center space-x-4">
+                  <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-blue-600 to-cyan-600 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <Mail className="w-8 h-8 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="text-sm text-gray-600 mb-1">Email</div>
+                    <div className="font-bold text-gray-900 text-sm">thehypeculture05@gmail.com</div>
+                    <div className="text-xs text-blue-600 mt-1">Send us an email</div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="mt-8 p-8 rounded-xl bg-white shadow-lg text-center"
             >
-              <Card className="border-0 shadow-xl">
-                <CardContent className="p-8">
-                  <h3 className="text-2xl font-bold mb-6 text-gray-900">Send us a Message</h3>
-                  <form className="space-y-4" onSubmit={handleFormSubmit}>
-                    <div>
-                      <label className="block text-sm font-medium mb-2 text-gray-700">Name *</label>
-                      <input 
-                        type="text"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
-                        placeholder="Your name"
-                        required
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium mb-2 text-gray-700">Email *</label>
-                      <input 
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
-                        placeholder="your@email.com"
-                        required
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium mb-2 text-gray-700">Phone</label>
-                      <input 
-                        type="tel"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleInputChange}
-                        className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
-                        placeholder="+91 XXXXX XXXXX"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium mb-2 text-gray-700">Message *</label>
-                      <textarea 
-                        rows={4}
-                        name="message"
-                        value={formData.message}
-                        onChange={handleInputChange}
-                        className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none text-gray-900"
-                        placeholder="Tell us about your project..."
-                        required
-                      />
-                    </div>
-                    {formStatus === 'success' && (
-                      <div className="p-3 rounded-lg bg-green-100 text-green-700 text-sm">
-                        ✓ Message sent successfully! We'll get back to you soon.
-                      </div>
-                    )}
-                    {formStatus === 'error' && (
-                      <div className="p-3 rounded-lg bg-red-100 text-red-700 text-sm">
-                        ✗ Failed to send message. Please try again.
-                      </div>
-                    )}
-                    <Button 
-                      type="submit" 
-                      className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white shadow-lg"
-                      disabled={formStatus === 'sending'}
-                    >
-                      {formStatus === 'sending' ? 'Sending...' : 'Send Message'} <ArrowRight className="ml-2 w-4 h-4" />
-                    </Button>
-                  </form>
-                </CardContent>
-              </Card>
+              <MapPin className="w-12 h-12 mx-auto mb-4 text-blue-600" />
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Visit Our Office</h3>
+              <p className="text-gray-600 text-lg">Siliguri, West Bengal, India</p>
             </motion.div>
           </div>
         </div>
@@ -991,9 +978,11 @@ export default function App() {
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
               <div className="flex items-center space-x-2 mb-4">
-                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-600 to-cyan-600 flex items-center justify-center">
-                  <Sparkles className="w-6 h-6 text-white" />
-                </div>
+                <img 
+                  src="/logo.png" 
+                  alt="TheHypeCulture Logo"
+                  className="h-12 w-12 object-contain rounded-lg"
+                />
                 <span className="text-xl font-bold">TheHypeCulture</span>
               </div>
               <p className="text-sm text-gray-400 mb-4">
@@ -1069,6 +1058,7 @@ export default function App() {
             size="icon" 
             className="w-14 h-14 rounded-full bg-green-500 hover:bg-green-600 shadow-2xl"
             onClick={handleWhatsApp}
+            title="Chat on WhatsApp"
           >
             <MessageCircle className="w-6 h-6" />
           </Button>
@@ -1078,6 +1068,7 @@ export default function App() {
             size="icon" 
             className="w-14 h-14 rounded-full bg-blue-600 hover:bg-blue-700 shadow-2xl"
             onClick={handleCall}
+            title="Call Now"
           >
             <Phone className="w-6 h-6" />
           </Button>

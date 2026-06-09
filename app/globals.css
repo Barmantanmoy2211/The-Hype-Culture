@@ -54,3 +54,21 @@
   background-size: 200% 200%;
   animation: gradient 3s ease infinite;
 }
+
+@keyframes scroll-infinite {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.333%);
+  }
+}
+
+.animate-scroll-infinite {
+  animation: scroll-infinite 30s linear infinite;
+}
+
+.animate-scroll-infinite:hover,
+.pause-animation:hover .animate-scroll-infinite {
+  animation-play-state: paused;
+}
