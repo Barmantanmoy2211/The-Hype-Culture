@@ -6,6 +6,11 @@ export const metadata = {
   description: 'Leading digital marketing agency in Siliguri, West Bengal. We specialize in SEO, website design, social media marketing, and app development. Transform your business with TheHypeCulture.',
   keywords: 'digital marketing siliguri, web design india, SEO services, social media marketing, app development, TheHypeCulture',
   authors: [{ name: 'TheHypeCulture' }],
+  icons: {
+    icon: '/FAVICON.png',
+    shortcut: '/FAVICON.png',
+    apple: '/FAVICON.png',
+  },
   openGraph: {
     title: 'TheHypeCulture - Digital Marketing & Web Design Agency',
     description: 'Transform your business with our digital marketing, SEO, and web design services in Siliguri, West Bengal',
