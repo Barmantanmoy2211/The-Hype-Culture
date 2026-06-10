@@ -962,11 +962,25 @@ export default function App() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="mt-8 p-8 rounded-xl bg-white shadow-lg text-center"
+              className="mt-8 p-8 rounded-xl bg-white shadow-lg"
             >
-              <MapPin className="w-12 h-12 mx-auto mb-4 text-blue-600" />
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Visit Our Office</h3>
-              <p className="text-gray-600 text-lg">Siliguri, West Bengal, India</p>
+              <div className="text-center mb-6">
+                <MapPin className="w-12 h-12 mx-auto mb-4 text-blue-600" />
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Visit Our Office</h3>
+                <p className="text-gray-600 text-lg">Siliguri, West Bengal, India</p>
+              </div>
+              <div className="w-full h-[400px] rounded-lg overflow-hidden shadow-md">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.5!2d88.4356123!3d26.6869649!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39e443e5d57cc3af%3A0xeda5d5173cc1e967!2sDey%20Marketing%20Solution%20-%20Digital%20Marketing%20Agency%20in%20Siliguri!5e0!3m2!1sen!2sin!4v1717977600000!5m2!1sen!2sin"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Office Location Map"
+                ></iframe>
+              </div>
             </motion.div>
           </div>
         </div>
